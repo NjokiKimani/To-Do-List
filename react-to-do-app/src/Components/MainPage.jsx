@@ -5,19 +5,24 @@ import './MainPage.css'
 import { PlusIcon } from "@heroicons/react/24/solid"
 
 
-const MainPage = () => {
+const MainPage = ({addTask}) => {
 
 const [task, setTask] = useState("")
 
 
 const handleFormSubmit =(e) =>{
     e.preventDefault();
+    addTask({
+        name: task,
+        checked: false,
+        id: Math.floor(Math.random),
+    })
     setTask("")
 }
 
 
   return (
-    <div className='mainPage flex gap-3'>
+    <div className='mainPage flex gap-1 mt-3'>
       <button className="btn p-0 h-6 rounded-none bg-transparent">
         <PlusIcon className="h-6 w-6 text-blue-500" />
       </button>
